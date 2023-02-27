@@ -1,15 +1,16 @@
 import time
 from src.capture_audio import capture_audio
 from src.speech_to_text import speech_to_text
-from inputimeout import inputimeout, TimeoutOccurred
+from src.chatbot import ChatBot
 import numpy as np
 
 # Define the DeepSpeech model path
 MODEL_PATH = "models/deepspeech-0.9.3-models.pbmm"
 
-def main():
-    # Initialize the DeepSpeech engine
-    ds = speech_to_text(model_path=MODEL_PATH)
+def main():    
+    ds = speech_to_text(model_path=MODEL_PATH) # Initialize the DeepSpeech engine
+   
+    chatbot = ChatBot()  # Initialize the chatbot
 
     # Continuously capture audio from the microphone and transcribe it
     while True:       
@@ -18,7 +19,7 @@ def main():
         # Initialize variables to store audio data and track silence
         audio_data = np.array([], dtype=np.int16)
         silence_threshold = 1000 # Set a threshold for the volume of "silence"
-        silence_duration_limit = 1.5 # Set a limit for how long silence can last (in seconds)
+        silence_duration_limit = 1.0 # Set a limit for how long silence can last (in seconds)
         last_spoken_time = time.time() # Initialize the time of the last spoken word
 
         # Continuously capture audio until there is a period of silence longer than the limit
@@ -44,7 +45,11 @@ def main():
                 last_spoken_time = time.time()
 
         text = ds.stt(audio_data) # Use DeepSpeech to transcribe the audio data
-        print(text) # Print the transcribed text
+        print("You said:", text) # Print the transcribed text
+
+        # Pass the text to the chatbot to get a response
+        response = chatbot.get_response(text)
+        print("Chatbot says:", response)
 
 # Ensure that the main() function is only called if the main.py file is being run as the main module, 
 # rather than being imported by another module.
