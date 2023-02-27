@@ -4,11 +4,8 @@ from src.speech_to_text import speech_to_text
 from src.chatbot import ChatBot
 import numpy as np
 
-# Define the DeepSpeech model path
-MODEL_PATH = "models/deepspeech-0.9.3-models.pbmm"
-
 def main():    
-    ds = speech_to_text(model_path=MODEL_PATH) # Initialize the DeepSpeech engine
+    ds = speech_to_text() # Initialize the DeepSpeech engine
    
     chatbot = ChatBot()  # Initialize the chatbot
 

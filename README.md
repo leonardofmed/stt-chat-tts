@@ -3,30 +3,26 @@
 This is a Python script that uses Mozilla's DeepSpeech library to perform speech-to-text transcription. It captures audio from the microphone and converts it to text using the DeepSpeech model.
 
 ## Dependencies
+Make sure you have Python 3 installed on your system (Requires maximum Python version 3.9).
 
-To run this script, you need to install the following dependencies:
+To run this project, you need to install the following dependencies:
 
-`deepspeech==0.9.3 numpy==1.21.4 pyaudio==0.2.11`
+`pip install deepspeech==0.9.3 numpy pyaudio openai python-dotenv`
 
-Make sure you have Python 3 installed on your system as well.
-
-### Installing DeepSpeech (Requires maximum Python version 3.9)
+### Installing DeepSpeech
 
 The `deepspeech` library requires installation of the pre-trained models in addition to the Python package. Follow the steps below to install the `deepspeech` library:
 
-1. Download the pre-trained models from the [DeepSpeech releases page](https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3).
+1. Download the pre-trained models and scorer from the [DeepSpeech releases page](https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3).
 
-2. Extract the contents of the archive to a directory of your choice.
+2. Place the contents in a folder named `models` in the project root.
 
-3. Install the `deepspeech` Python package using pip:
-
-`pip install deepspeech==0.9.3`
-
-1. Modify the `model` variable in the `speech_to_text.py` script to point to the directory containing the pre-trained models: 
+3. Modify the `self.model` variable in the `speech_to_text.py` script to point to the directory containing the pre-trained models and scorer: 
 
 ```python
 
-model = deepspeech.Model('/path/to/deepspeech-0.9.3-models.pbmm')
+self.model = deepspeech.Model("models/deepspeech-0.9.3-models.pbmm")
+self.model.enableExternalScorer("models/deepspeech-0.9.3-models.scorer")
 
 ```
 
