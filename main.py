@@ -2,6 +2,7 @@ import time
 from src.capture_audio import capture_audio
 from src.speech_to_text import speech_to_text
 from src.chatbot import ChatBot
+from src.text_to_speech import text_to_speech
 import numpy as np
 
 def main():    
@@ -47,6 +48,9 @@ def main():
         # Pass the text to the chatbot to get a response
         response = chatbot.get_response(text)
         print("Chatbot says:", response)
+
+        # Generate speech output from the response using gTTS
+        text_to_speech(response)
 
 # Ensure that the main() function is only called if the main.py file is being run as the main module, 
 # rather than being imported by another module.

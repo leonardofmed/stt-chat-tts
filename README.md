@@ -7,7 +7,7 @@ Make sure you have Python 3 installed on your system (Requires maximum Python ve
 
 To run this project, you need to install the following dependencies:
 
-`pip install deepspeech==0.9.3 numpy pyaudio openai python-dotenv`
+`pip install deepspeech==0.9.3 numpy pyaudio openai python-dotenv gtts`
 
 ### Installing DeepSpeech
 
