@@ -22,5 +22,3 @@ def text_to_speech(text):
     # Wait for the audio to finish playing before continuing
     while mixer.music.get_busy():
         continue
-
-# TODO Stop the audio in the middle of sentence

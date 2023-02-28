@@ -20,10 +20,7 @@ def main():
         last_spoken_time = time.time() # Initialize the time of the last spoken word
 
         # Continuously capture audio until there is a period of silence longer than the limit
-        while True:
-            
-            # TODO Stop the audio before the silent threshold
-            
+        while True:            
             chunk = capture_audio() # Capture a chunk of audio
             audio_data = np.concatenate((audio_data, chunk)) # Add the chunk to the array of audio data
 

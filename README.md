@@ -44,6 +44,10 @@ To run the script, simply execute the `main.py` file:
 
 The script will capture audio from your microphone and convert it to text using the DeepSpeech model. The resulting text will be printed to the console.
 
+## TODO
+- [ ] Allow the user to stop the TTS audio playing manually without exiting the application
+- [ ] Add other types of STT and allow user to change between them
+
 ## Troubleshooting
 
 If you encounter any issues while installing or running the script, make sure to check the following:
@@ -52,3 +56,4 @@ If you encounter any issues while installing or running the script, make sure to
 - Make sure your microphone is connected and working properly.
 - If you encounter any issues with PyAudio, try running the script with administrator privileges or installing PyAudio using a different method (e.g., conda or homebrew).
 - If you encounter any issues with DeepSpeech, try downloading the latest version of the pre-trained model files from the DeepSpeech releases page on GitHub and modifying the script to use the new files.
+- If the audio from the microphone takes a long time to convert to text or is cutting off some of the speech, check if you don't have any other USB devices, such as a webcam, that could be causing interference.
