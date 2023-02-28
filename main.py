@@ -6,8 +6,7 @@ from src.text_to_speech import text_to_speech
 import numpy as np
 
 def main():    
-    ds = speech_to_text() # Initialize the DeepSpeech engine
-   
+    ds = speech_to_text() # Initialize the DeepSpeech engine   
     chatbot = ChatBot()  # Initialize the chatbot
 
     # Continuously capture audio from the microphone and transcribe it
@@ -21,7 +20,10 @@ def main():
         last_spoken_time = time.time() # Initialize the time of the last spoken word
 
         # Continuously capture audio until there is a period of silence longer than the limit
-        while True:            
+        while True:
+            
+            # TODO Stop the audio before the silent threshold
+            
             chunk = capture_audio() # Capture a chunk of audio
             audio_data = np.concatenate((audio_data, chunk)) # Add the chunk to the array of audio data
 
